@@ -20,7 +20,22 @@ module Enumerable
     end
     return true
   end
+
+  def my_any?
+    self.each do |x|
+      return true if yield x
+    end
+    return false
+  end
+
+  def my_none?
+    self.each do |x|
+      return false if yield x
+    end
+    return true
+  end
 end
+
 
 class Array
   def my_each
