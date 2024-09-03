@@ -5,6 +5,21 @@ module Enumerable
     end
     return self
   end
+
+  def my_select
+    temp = []
+    self.each do |x|
+      temp << x if yield x
+    end
+    return temp
+  end
+
+  def my_all?
+    self.each do |x|
+      return false unless yield x
+    end
+    return true
+  end
 end
 
 class Array
